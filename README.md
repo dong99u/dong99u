@@ -15,3 +15,5 @@
   
   
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=dong99u&show_icons=true&theme=dark)
+
+![snake gif](https://github.com/dong99u/dong99u/blob/output/github-contribution-grid-snake.svg)
