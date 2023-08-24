@@ -16,8 +16,9 @@
 
 # ME :laughing:
 
-<img src="https://img.shields.io/badge/UMC%204th%20Server%20-02B3E4?style=flat-square&logo=udacity&logoColor=white">  <a href="https://www.instagram.com/d99u_p/" target="_blank"><img src="https://img.shields.io/badge/d99u__p-E4405F?style=flat-square&logo=instagram&logoColor=white">   <img src="https://img.shields.io/badge/qkrehdrb0813@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white">   <a href="https://velog.io/@eastking7979" target="_blank"><img src="https://img.shields.io/badge/Velog-20C997?style=flat-square&logo=velog&logoColor=white">
-  
+<img src="https://img.shields.io/badge/UMC%204th%20Server%20-02B3E4?style=flat-square&logo=udacity&logoColor=white">  <a href="https://www.instagram.com/d99u_p/" target="_blank"><img src="https://img.shields.io/badge/d99u__p-E4405F?style=flat-square&logo=instagram&logoColor=white">   <img src="https://img.shields.io/badge/qkrehdrb0813@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white">   <a href="https://velog.io/@eastking7979" target="_blank"><img src="https://img.shields.io/badge/Velog-20C997?style=flat-square&logo=velog&logoColor=white"> 
+<a href="https://github.com/FindAlphaa" target="_blank"><img src="https://img.shields.io/badge/find%20alpha-EF2D5E?style=flat-square&logo=aframe&logoColor=white">
+
   
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=dong99u&show_icons=true&theme=dark)  
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=dong99u&theme=dark&layout=donut)](https://github.com/dong99u/github-readme-stats)
