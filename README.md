@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=dong99u&desc=UMC%206th%20Server&animation=twinkling&fontAlign=70&descAlign=77&descAlignY=65)
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=dong99u&desc=UMC%207th%20Server&animation=twinkling&fontAlign=70&descAlign=77&descAlignY=65)
 
 # SKILLS  :scroll:  
   
