@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=dong99u&desc=Backend%20Developer%20|%20Google%20Solution%20Challenge%20Top%20100&animation=twinkling&fontAlign=70&descAlign=77&descAlignY=65)
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=dong99u&desc=Backend%20Developer%20&animation=twinkling&fontAlign=70&descAlign=77&descAlignY=65)
 
 <div align="center">
 
