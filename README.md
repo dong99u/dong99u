@@ -170,11 +170,11 @@
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=dong99u&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
+![GitHub Stats](https://github-readme-stats-sigma-five.vercel.app/api?username=dong99u&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
 
 ![GitHub Streak](https://streak-stats.demolab.com/?user=dong99u&theme=tokyonight&hide_border=true)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=dong99u&theme=tokyonight&layout=compact&hide_border=true&exclude_repo=github-readme-stats)
+![Top Languages](https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=dong99u&theme=tokyonight&layout=compact&hide_border=true&exclude_repo=github-readme-stats)
 
 [![Solved.ac Profile](https://mazassumnida.wtf/api/v2/generate_badge?boj=eastking7979)](https://solved.ac/eastking7979/)
 
@@ -199,6 +199,6 @@
 ### Open to Backend Development Opportunities
 **Specializing in Spring Boot, AWS Cloud Architecture, and DDD**
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdong99u&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Profile+Views&edge_flat=false)](https://hits.seeyoufarm.com)
+![Profile Views](https://komarev.com/ghpvc/?username=dong99u&color=brightgreen&style=flat-square&label=Profile+Views)
 
 </div>
