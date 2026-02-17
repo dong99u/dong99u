@@ -172,11 +172,11 @@
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=dong99u&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=dong99u&theme=tokyonight&hide_border=true)
+![GitHub Streak](https://streak-stats.demolab.com/?user=dong99u&theme=tokyonight&hide_border=true)
 
 ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=dong99u&theme=tokyonight&layout=compact&hide_border=true&exclude_repo=github-readme-stats)
 
-[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=eastking7979)](https://solved.ac/eastking7979/)
+[![Solved.ac Profile](https://mazassumnida.wtf/api/v2/generate_badge?boj=eastking7979)](https://solved.ac/eastking7979/)
 
 </div>
 
