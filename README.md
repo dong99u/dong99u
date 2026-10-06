@@ -6,125 +6,105 @@
 <p align="center">
   <a href="mailto:qkrehdrb0813@gmail.com">Email</a> &nbsp;·&nbsp;
   <a href="https://www.linkedin.com/in/dongkyu-park">LinkedIn</a> &nbsp;·&nbsp;
-  <a href="https://github.com/dong99u/tradingpt-docs">Tech Docs</a> &nbsp;·&nbsp;
+  <a href="https://www.dero.life">DERO</a> &nbsp;·&nbsp;
   <a href="https://solved.ac/eastking7979/">solved.ac</a>
 </p>
 
 <br>
 
-장애의 **근본 원인**을 끝까지 추적하고, 기술 선택의 **이유**를 설명할 수 있는 백엔드 개발자입니다.
-실서비스에서 측정하고, 고치고, 결정을 문서로 남깁니다.
+요구사항을 **데이터 구조와 실제 동작하는 시스템**으로 구체화하는 백엔드 개발자입니다.
+서비스 운영에서 문제를 추적하고, 실험으로 판단을 검증하고, 선택의 이유를 기록합니다.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/impact-dark.svg">
-  <img alt="SQL 101→4 (−96%) · p95 40.7s→0.8s (−97%) · 결제 성공률 0%→100% · 실사용자 642명+" src="assets/impact-light.svg" width="100%">
+  <img alt="TradingPT 이용자 1,100명 이상 · 누적 등록 피드백 2,000건 이상 (2026.10.06 사용자 확인) · 개발 서버 SQL 101→4 · DERO SSAFY 2학기 프로젝트 우수상" src="assets/impact-light.svg" width="100%">
 </picture>
 
-## `01` Featured — TradingPT
+<sub>TradingPT 이용자·피드백은 2026.10.06 직접 확인한 누적 스냅샷입니다. 실시간 자동 집계가 아닙니다. SQL은 출시 전 개발 서버에서 측정한 값입니다.</sub>
 
-**Spring Boot 기반 트레이딩 교육 플랫폼 백엔드** &nbsp;`2025.08 – 운영 중`&nbsp; BE 2 · FE 1
+## `01` Selected work
 
-20개 도메인을 DDD + CQRS로 설계하고 NicePay 빌링키 정기결제, 카카오·네이버 OAuth2, AWS Multi-AZ 인프라를 구축했습니다.
-2025.12 오픈 후 가입자 642명+, 피드백 요청 5,300건+를 처리하고 있습니다. → [기술 문서](https://github.com/dong99u/tradingpt-docs)
+### DERO · 3D 데스크테리어 시뮬레이터
+
+**SSAFY 15기 공통 프로젝트 · 팀장 겸 풀스택 · 5인 팀** &nbsp;`2026.07 – 진행 중`<br>
+[서비스 보기 ↗](https://www.dero.life) · **SSAFY 2학기 프로젝트 우수상** (2026.08)
+
+책상·모니터암·소품의 규격과 호환성을 확인하고, 3D 공간에 배치해 보는 서비스입니다. 경험 없는 3D 기술은 구현 전에 Spike로 검증했고, 3D 모델 생성·압축 파이프라인과 팀의 개발 절차를 설계했습니다.
+
+- **3D 에셋:** GLB 모델 압축 파이프라인 구축. 첫 배치를 직접 검수하고 제품 규격에 맞게 축·크기 보정.
+- **검색·백엔드:** 20건씩 지연 로딩하도록 바꾼 뒤 전체 검색이 사라지는 문제를 해결하기 위해 Elasticsearch 검색을 설계·구현. PostgreSQL을 제품 정보의 정본으로 유지.
+- **팀 개발:** 요구사항 → 실험 → 설계 → 검증으로 이어지는 AI 에이전트 개발 절차와 문서 정본·품질 게이트 구축.
+
+`Next.js` `Three.js` `Spring Boot` `PostgreSQL` `Elasticsearch` `Docker`
+
+### TradingPT · 트레이딩 교육·매매일지 피드백
+
+**백엔드 개발 · 프로젝트 용역 계약** &nbsp;`2025.07 – 2025.12` &nbsp; BE 2 · FE 1<br>
+서비스는 2025.12 오픈 후 운영 중 · **이용자 1,100명 이상 / 누적 등록 피드백 2,000건 이상** (2026.10.06 사용자 제공)
+
+구독 결제, 강의 영상 접근 제어, 매매일지 피드백·통계 API를 개발했습니다. 전체 ERD를 설계하고 AWS 운영 환경과 CI/CD 파이프라인을 구축했습니다.
 
 <details>
-<summary><b>N+1 쿼리 · 커넥션 풀 고갈</b> &nbsp;—&nbsp; 쿼리 101 → 4</summary>
+<summary><b>개발 중 관리자 조회: SQL 101 → 4</b> — N+1과 커넥션 풀 고갈의 원인 해결</summary>
 <br>
 
-| | |
-|---|---|
-| **문제** | 관리자 대시보드 API 1건에 SQL 101개, HikariCP(max 10) 고갈로 3일간 서비스 불가 |
-| **원인** | 1-side(Customer) 기준 조회 → 연관관계가 전부 ToMany라 Fetch Join 불가, 루프 안에서 Repository 5개 호출 |
-| **해결** | N-side(Subscription)에서 출발해 모든 관계를 ToOne으로 전환 · Fetch Join + IN절 배치 쿼리 + 메모리 조립 · 스케줄러 5분 간격 분산 |
-| **결과** | 쿼리 96%↓ · 응답 20s → 2s · 커넥션 풀 사용률 100% → 50% |
+개발 서버에서 한 화면을 그리기 위해 101개의 쿼리가 발생했습니다. Customer(1-side) 기준 조회와 반복적인 저장소 호출을 Subscription(N-side) 기준 조회·Fetch Join·배치 쿼리로 재구성해 4개로 줄였습니다. **이 수치는 개발 단계의 쿼리 수이며 운영 장애 시간이나 응답시간 개선 수치가 아닙니다.**
 
 </details>
 
 <details>
-<summary><b>REQUIRES_NEW × REPEATABLE_READ 격리 충돌</b> &nbsp;—&nbsp; 결제 성공률 0% → 100%</summary>
+<summary><b>첫 유료 구독 생성 실패</b> — 트랜잭션 격리 경계 재설계</summary>
 <br>
 
-| | |
-|---|---|
-| **문제** | 빌링키 등록은 성공하는데 유료 구독 생성만 100% 실패 (0원 프로모션은 성공) |
-| **원인** | 자식 TX(REQUIRES_NEW)가 커밋한 PaymentMethod를 부모 TX의 REPEATABLE_READ 스냅샷이 보지 못함 (MVCC 가시성) |
-| **해결** | ID로 재조회하지 않고 엔티티 객체를 직접 전달해 재조회 자체를 제거 |
-| **결과** | 결제 성공률 0% → 100% · DB 쿼리 25%↓ |
+`REQUIRES_NEW` 자식 트랜잭션에서 결제수단을 저장한 뒤 부모 `REPEATABLE_READ` 트랜잭션이 ID로 재조회하면 새 행이 보이지 않았습니다. 결제수단 엔티티를 직접 전달해 재조회 한 건을 제거하고 구독 생성 흐름을 정상화했습니다. **서비스 전체의 결제 성공률을 측정한 수치는 없습니다.**
 
 </details>
 
 <details>
-<summary><b>k6 1,000 VU 부하 테스트 · 3-Layer 병목 분석</b> &nbsp;—&nbsp; p95 40.7s → 800ms</summary>
+<summary><b>k6 부하 테스트</b> — p95 40.7초의 병목을 로그인 인증 경로로 분리</summary>
 <br>
 
-| | |
-|---|---|
-| **문제** | p95 40.7초, CPU 96%, t3.medium CPU 크레딧 즉시 소진 |
-| **원인** | ① BCrypt CPU-bound (60–70%) ② HikariCP 풀 부족 (20–25%) ③ RDS IOPS 제한 (10–15%) |
-| **해결** | EC2 t3.medium → c6i.xlarge · RDS db.t3.micro → db.r6g.large · 풀 크기 (cores×2)+1 재산정 |
-| **결과** | p95 97%↓ · TPS 41.7 → 150–200 · CPU 40–60% |
+개발 단계 부하 테스트에서 p95 40.7초, TPS 41.7, CPU 96%를 관측했습니다. 로그인을 제외하고 조회 API에 다시 부하를 걸어 병목이 BCrypt를 포함한 인증 경로에 있음을 확인했습니다. **서로 다른 테스트 범위를 전후 성능 개선치로 비교하지 않습니다.**
 
 </details>
 
-<details>
-<summary><b>SPA ↔ API CSRF 토큰 불일치</b> &nbsp;—&nbsp; 403 에러율 100% → 0%</summary>
-<br>
+`Java 17` `Spring Boot` `JPA` `QueryDSL` `MySQL` `Redis` `AWS` `GitHub Actions`
 
-| | |
-|---|---|
-| **문제** | SPA(localhost:3000) → API(dev.tradingpt.kr) 모든 변경 요청이 403 |
-| **원인** | Spring Security 6 기본 `CookieCsrfTokenRepository`는 쿠키로만 전달, SPA는 응답 헤더에서 토큰을 읽어야 함 |
-| **해결** | Decorator 패턴의 `HeaderAndCookieCsrfTokenRepository`로 쿠키 + 헤더 동시 전달 |
-| **결과** | CSRF 에러 0% · 기존 코드 변경 0줄 |
+### 떠먹는 금융 · 금융 뉴스 검색과 Q&A
 
-</details>
+**SSAFY 데이터 트랙 · 데이터 엔지니어** &nbsp;`2026.05 – 2026.07`<br>
+[저장소 ↗](https://github.com/dong99u/de_pjt)
 
-<details>
-<summary><b>아키텍처 의사결정 7가지</b> &nbsp;—&nbsp; 무엇을, 왜 골랐나</summary>
-<br>
+뉴스 수집과 멱등 스트리밍 인덱싱, 하이브리드 검색, RAG 기반 Q&A를 구현했습니다. 원본 데이터·검색 인덱스 사이의 불일치를 고려해 처리 흐름을 설계했습니다.
 
-| 영역 | 선택 | 근거 |
+`Python` `Django` `Kafka` `Flink` `PostgreSQL` `Qdrant` `Elasticsearch`
+
+## `02` More projects
+
+| 프로젝트 | 담당 | 기술 |
 |---|---|---|
-| 인프라 | Multi-AZ | 99.95% SLA, Public/Private Subnet 분리로 장애 격리 |
-| 배포 | Blue/Green | 무중단, 롤백 5분, 배포 시간 67%↓ (GitHub Actions + CodeDeploy) |
-| 컨테이너 | EC2 + ASG | YAGNI — EKS 대비 연 $1,236 절감, Docker로 ECS 이전 경로 확보 |
-| 인증 | Redis Session | JWT 무효화에도 결국 Redis가 필요해 Stateless 이점 상실 → 세션 + 동시접속 제어 |
-| 스케줄링 | ShedLock | 테이블 1개 (Spring Batch 6개, Quartz 11개 대비) |
-| 모니터링 | CloudWatch | EC2 · ALB · RDS · ElastiCache 메트릭 통합 |
-| DDD | Shared Kernel | 독립 Aggregate를 `customer_id` + 기간 복합 키로 논리 연결 |
+| [**Nugget**](https://github.com/dong99u/Nugget-FE) · 시각장애인 보행 보조 | 팀장 · Flutter 앱 · 온디바이스 객체탐지/OCR · Google Solution Challenge 2024 Top 100 Finalist | Flutter · TFLite |
+| [**Momento**](https://github.com/dong99u/momento) · 가족 대화 플랫폼 | 백엔드 리드 · UMC Hackathon 우수상 | Kotlin · Spring Boot |
+| [**Love Keeper**](https://github.com/dong99u/love_keeper_BE) · 커플 소통 플랫폼 | 백엔드 개발 · ECS 배포 | Spring Boot · AWS ECS |
+| [**Indayvidual**](https://github.com/Indayvidual/Indayvidual-Server) · 일정 관리 | 습관·메모 도메인 백엔드 | Spring Boot · QueryDSL |
 
-</details>
-
-## `02` Projects
-
-| | 프로젝트 | 한 줄 요약 | Stack |
-|---|---|---|---|
-| ◆ | [**Momento**](https://github.com/dong99u/momento) | 가족 대화 플랫폼 · 응답 60s → 9ms | Spring Boot · Kotlin · Redis · GPT-4 |
-| ◆ | [**Love Keeper**](https://github.com/dong99u/love_keeper_BE) | 커플 소통 플랫폼 · ECS Fargate MSA | Spring Boot · AWS ECS |
-| ◆ | [**Indayvidual**](https://github.com/Indayvidual/Indayvidual-Server) | 커스터마이징 일정 관리 앱 | Spring Boot |
-| ◆ | [**Mody**](https://github.com/dong99u/mody-server) | 맞춤형 스타일 추천 | Spring Boot |
-| ◇ | [**nugget**](https://github.com/dong99u/Nugget-FE) | 시각장애인 보행 보조 · GSC Global Top 100 | Flutter · TF Lite |
-| ◇ | [**chalim**](https://github.com/dong99u/chalim-frontend) | 외국인을 위한 메뉴판 번역 | Flutter |
-
-<sub>◆ 백엔드 &nbsp; ◇ 앱 · ML</sub>
-
-## `03` Stack
+## `03` Toolbox
 
 <p>
   <img src="https://skillicons.dev/icons?i=java,spring,kotlin,hibernate,mysql,redis&perline=6" alt="Java, Spring, Kotlin, Hibernate, MySQL, Redis" height="40"><br>
-  <img src="https://skillicons.dev/icons?i=aws,docker,githubactions,linux,python,flutter&perline=6" alt="AWS, Docker, GitHub Actions, Linux, Python, Flutter" height="40">
+  <img src="https://skillicons.dev/icons?i=aws,docker,githubactions,postgres,python,nextjs&perline=6" alt="AWS, Docker, GitHub Actions, PostgreSQL, Python, Next.js" height="40">
 </p>
 
-`Spring Security 6` `QueryDSL` `JUnit 5` `k6` `ShedLock` `OAuth2` `DDD` `CQRS`
+`Kafka` `Flink` `Elasticsearch` `Three.js` `JUnit 5` `k6`
 
-## `04` Track record
+## `04` Beyond code
 
 | | |
 |---|---|
-| **수상** | Google Solution Challenge 2024 Global Top 100 · GBT 학부 해커톤 대상 · 공과대학 코드 페스티벌 알고리즘 1위 |
-| **교육** | SSAFY 15기 데이터 트랙 (2026.01 –) · 한국외국어대학교 컴퓨터전자시스템공학부 졸업 |
+| **수상** | SSAFY 2학기 프로젝트 우수상 (DERO, 2026) · Google Solution Challenge 2024 Top 100 Finalist (Nugget) · GBT Hackathon Challenge 최우수상 |
+| **교육** | SSAFY 15기 데이터 트랙 (2026.01–12) · 한국외국어대학교 컴퓨터전자시스템공학부 졸업 |
 | **활동** | UMC 4–8기 (8기 Spring Boot 파트장) · GDSC 5기 |
-| **자격** | SQLD · TOEIC Speaking Advanced Low |
+| **자격** | 정보처리기사 · SQLD · TOEIC Speaking Advanced Low |
 
 <br>
 
