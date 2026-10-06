@@ -15,14 +15,33 @@
 요구사항을 **데이터 구조와 실제 동작하는 시스템**으로 구체화하는 백엔드 개발자입니다.
 서비스 운영에서 문제를 추적하고, 실험으로 판단을 검증하고, 선택의 이유를 기록합니다.
 
+## `01` 수상 · Recognition
+
+> ### `2026.08` SSAFY 15기 · 2학기 프로젝트 **우수상**
+> [**DERO**](https://www.dero.life) — 3D 데스크테리어 시뮬레이터 · 삼성전자주식회사 수여
+
+> ### `2024.04` Google Solution Challenge · **Top 100 Finalist**
+> [**Nugget**](https://github.com/dong99u/Nugget-FE) — 시각장애인 보행 보조 앱
+
+> ### `2023.10` GBT Hackathon Challenge · **최우수상**
+> 건설장비 작동오일 분류 · 알고리즘 설계 및 서비스 기획
+
+**그 외 수상**
+
+- `2025.07` **UMC Hackathon 우수상 (본선 2위)** — [Momento](https://github.com/dong99u/momento)
+- `2023.05` **UMC NEO IDEATHON 대상** — 팀 RVHA
+- `2022.11` **HUFS Code Festival 대상 (1위)** — 한국외대 공과대학 알고리즘 대회
+
+<sub>UMC Hackathon·HUFS Code Festival은 본인 확인 기록에 근거하며 상장은 보유하지 않습니다. 나머지 위 네 항목은 상장 원본을 대조했습니다.</sub>
+
+## `02` Selected work
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/impact-dark.svg">
-  <img alt="TradingPT 이용자 1,100명 이상 · 누적 등록 피드백 2,000건 이상 (2026.10.06 사용자 확인) · 개발 서버 SQL 101→4 · DERO SSAFY 2학기 프로젝트 우수상" src="assets/impact-light.svg" width="100%">
+  <img alt="TradingPT 이용자 1,100명 이상 · 누적 등록 피드백 2,000건 이상 (2026.10.06 사용자 확인) · 개발 서버 SQL 101→4" src="assets/impact-light.svg" width="100%">
 </picture>
 
 <sub>TradingPT 이용자·피드백은 2026.10.06 직접 확인한 누적 스냅샷입니다. 실시간 자동 집계가 아닙니다. SQL은 출시 전 개발 서버에서 측정한 값입니다.</sub>
-
-## `01` Selected work
 
 ### DERO · 3D 데스크테리어 시뮬레이터
 
@@ -79,7 +98,7 @@
 
 `Python` `Django` `Kafka` `Flink` `PostgreSQL` `Qdrant` `Elasticsearch`
 
-## `02` More projects
+## `03` More projects
 
 | 프로젝트 | 담당 | 기술 |
 |---|---|---|
@@ -88,7 +107,7 @@
 | [**Love Keeper**](https://github.com/dong99u/love_keeper_BE) · 커플 소통 플랫폼 | 백엔드 개발 · ECS 배포 | Spring Boot · AWS ECS |
 | [**Indayvidual**](https://github.com/Indayvidual/Indayvidual-Server) · 일정 관리 | 습관·메모 도메인 백엔드 | Spring Boot · QueryDSL |
 
-## `03` Toolbox
+## `04` Toolbox
 
 <p>
   <img src="https://skillicons.dev/icons?i=java,spring,kotlin,hibernate,mysql,redis&perline=6" alt="Java, Spring, Kotlin, Hibernate, MySQL, Redis" height="40"><br>
@@ -97,11 +116,10 @@
 
 `Kafka` `Flink` `Elasticsearch` `Three.js` `JUnit 5` `k6`
 
-## `04` Beyond code
+## `05` Education and credentials
 
 | | |
 |---|---|
-| **수상** | SSAFY 2학기 프로젝트 우수상 (DERO, 2026) · Google Solution Challenge 2024 Top 100 Finalist (Nugget) · GBT Hackathon Challenge 최우수상 |
 | **교육** | SSAFY 15기 데이터 트랙 (2026.01–12) · 한국외국어대학교 컴퓨터전자시스템공학부 졸업 |
 | **활동** | UMC 4–8기 (8기 Spring Boot 파트장) · GDSC 5기 |
 | **자격** | 정보처리기사 · SQLD · TOEIC Speaking Advanced Low |

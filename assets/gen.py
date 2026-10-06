@@ -92,18 +92,17 @@ def impact(t):
         ("TRADINGPT · USERS", "1,100+", "이용자", "2026.10.06 사용자 확인"),
         ("TRADINGPT · FEEDBACK", "2,000+", "건", "누적 등록 · 사용자 확인"),
         ("TRADINGPT · DEV", "101→4", "SQL", "개발 서버 · 조회 최적화"),
-        ("DERO · SSAFY", "우수상", "", "2학기 공통 프로젝트 · 2026.08"),
     ]
     cw = (W - 2) / len(cells)
-    s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="TradingPT 이용자 1,100명 이상, 누적 등록 피드백 2,000건 이상, 개발 서버 SQL 101건에서 4건, DERO SSAFY 우수상">',
-         "<title>TradingPT 이용자 1,100명+, 등록 피드백 2,000건+ (2026.10.06 사용자 확인) · 개발 서버 SQL 101→4 · DERO SSAFY 우수상</title>", STYLE,
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="TradingPT 이용자 1,100명 이상, 누적 등록 피드백 2,000건 이상, 개발 서버 SQL 101건에서 4건">',
+         "<title>TradingPT 이용자 1,100명+, 등록 피드백 2,000건+ (2026.10.06 사용자 확인) · 개발 서버 SQL 101→4</title>", STYLE,
          f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="14" fill="{t["bg"]}" stroke="{t["border"]}"/>']
     for i, (label, value, unit, sub) in enumerate(cells):
         x = 1 + i * cw
         if i:
             s.append(f'<line x1="{x:.1f}" y1="22" x2="{x:.1f}" y2="{H-22}" stroke="{t["border"]}"/>')
         cx = x + 23
-        size = 30 if i != 3 else 29
+        size = 30
         s.append(f'<g class="fade" style="animation-delay:{i*0.15:.2f}s">')
         s.append(f'<text x="{cx:.1f}" y="40" class="mono" font-size="10.5" font-weight="700" letter-spacing="0.7" fill="{t["muted"]}">{label}</text>')
         s.append(f'<text x="{cx:.1f}" y="88" class="sans" font-size="{size}" font-weight="700" fill="{t["text"]}">{value}'
